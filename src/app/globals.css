@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0d0f1a;
+  --color-surface: rgba(255,255,255,0.04);
+  --color-border: rgba(255,255,255,0.09);
+  --color-text: #e8eaf6;
+  --color-muted: #7c83a0;
+  --color-accent: #7c6cf8;
+  --color-accent2: #4fa8ff;
+  --color-error-bg: rgba(239,68,68,0.12);
+  --color-error-border: rgba(239,68,68,0.4);
+  --color-error-text: #f87171;
+  --color-input-bg: rgba(255,255,255,0.06);
+  --color-input-hover: rgba(255,255,255,0.10);
+  --color-card: #161829;
+  --font-sans: var(--font-inter), 'Segoe UI', system-ui, sans-serif;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+  body { background: var(--color-bg); color: var(--color-text); min-height: 100vh; }
+  input, button, select, textarea { font-family: inherit; }
+  a { color: inherit; text-decoration: none; }
+}
+
+/* ── Animated background blobs ── */
+@keyframes blob-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.35; }
+  50%       { transform: scale(1.12); opacity: 0.5; }
+}
+.blob { animation: blob-pulse 8s ease-in-out infinite; }
+
+/* ── Spinner ── */
+@keyframes spin-fast { to { transform: rotate(360deg); } }
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 9999px;
+  animation: spin-fast 0.7s linear infinite;
+}
+
+/* ── Hamburger bars ── */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.dropdown-anim { animation: fadeInDown 0.15s ease; }
